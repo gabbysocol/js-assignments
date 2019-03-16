@@ -223,7 +223,13 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-    throw new Error('Not implemented');
+    var myArr = [];
+    str.forEach(function(x) {
+        (((x.charCodeAt(0) < 91) && (x.charCodeAt(0) > 64)) || ((x.charCodeAt(0) < 123) && (x.charCodeAt(0) > 96)))? 
+            ((x.charCodeAt(0) < 91) ? myArr.push(String.fromCharCode((x.charCodeAt(0) - x.charCodeAt('A') + 13) % 26 + x.charCodeAt('A'))) :
+        		myArr.push(String.fromCharCode((x.charCodeAt(0) - x.charCodeAt('a') + 13) % 26 + x.charCodeAt('a')))) : myArr.push(x);
+	});
+  return myArr.toString();
 }
 
 /**
