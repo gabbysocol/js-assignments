@@ -102,7 +102,8 @@ function getArrayOfStrings(arr) {
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
 function removeFalsyValues(arr) {
-    return arr.filter(function(elem) {return (elem !== '') && (elem !== false) && (!isNaN(elem)) && (elem !== 0) && (elem !== undefined)});
+    return arr.filter(function(elem) 
+{return (elem !== '') && (elem !== false) && (!isNaN(elem) || (typeof elem === 'string')) && (elem !== 0) && (elem !== undefined)});
 }
 
 /**
@@ -116,7 +117,7 @@ function removeFalsyValues(arr) {
  *    [ 'a', 'b', 'c', 'd', 'e', 'f', 'g' ]  => [ 'A', 'B', 'C', 'D', 'E', 'F', 'G' ]
  */
 function getUpperCaseStrings(arr) {
-   return arr.flatMap(elem => elem.toUpperCase());
+   return Array.from(arr, elem => elem.toUpperCase());
 }
 
 
@@ -131,7 +132,7 @@ function getUpperCaseStrings(arr) {
  *    [ 'angular', 'react', 'ember' ] => [ 7, 5, 5 ]
  */
 function getStringsLength(arr) {
-   return arr.flatMap(elem => elem.length);
+   return Array.from(arr, elem => elem.length);
 }
 
 /**
@@ -200,7 +201,7 @@ function getTail(arr, n) {
  *    +'30,31,32,33,34'
  */
 function toCsvText(arr) {
-   return arr.flatMap(elem => elem.join(',') + '\n');
+   return Array.from(arr, elem => elem.join(',') + '\n');
 }
 
 /**
@@ -215,7 +216,7 @@ function toCsvText(arr) {
  *   [ 10, 100, -1 ]      => [ 100, 10000, 1 ]
  */
 function toArrayOfSquares(arr) {
-   return arr.flatMap( elem => elem * elem);
+   return Array.from( arr, elem => elem * elem);
 }
 
 
