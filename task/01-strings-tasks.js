@@ -294,7 +294,7 @@ function getCardId(value) {
 	  res = 39;
 
 	if (/[[0-9]/.test(value.substring(0, value.length - 1)))
-	  res = res - 1 + parseInt(value.substring(0, value.length - 1));
+	  return res - 1 + parseInt(value.substring(0, value.length - 1));
 	else { 
 	  if (value[0] === 'A')
 	    return res;	  
