@@ -201,7 +201,7 @@ function getTail(arr, n) {
  *    +'30,31,32,33,34'
  */
 function toCsvText(arr) {
-   return Array.from(arr, elem => elem.join(',') + '\n');
+   return Array.from(arr, elem => elem.join(',')).join('\n');
 }
 
 /**
