@@ -283,7 +283,28 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-    throw new Error('Not implemented');
+	var res;
+	if (value[value.length - 1] === '♣')
+	  res = 0;
+	if (value[value.length - 1] === '♦')
+	  res = 13;
+	if (value[value.length - 1] === '♥')
+	  res = 26;
+	if (value[value.length - 1] === '♠')
+	  res = 39;
+
+	if (/[[0-9]/.test(value.substring(0, value.length - 1)))
+	  res = res - 1 + parseInt(value.substring(0, value.length - 1));
+	else { 
+	  if (value[0] === 'A')
+	    return res;	  
+	  if (value[0] === 'J')
+	    return res + 10;	  
+	  if (value[0] === 'Q')
+	    return res + 11;	  
+	  if (value[0] === 'K')
+	    return res + 12;
+	}
 }
 
 
