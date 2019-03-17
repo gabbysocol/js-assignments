@@ -223,13 +223,20 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-    var myArr = [];
-    for (var i = 0; i < str.length; i++) {
-    	var x = str.charAt(i);
-        (((x.charCodeAt(0) < 91) && (x.charCodeAt(0) > 64)) || ((x.charCodeAt(0) < 123) && (x.charCodeAt(0) > 96)))? 
-            ((x.charCodeAt(0) < 91) ? myArr.push(String.fromCharCode((x.charCodeAt(0) - x.charCodeAt('A') + 13) % 26 + x.charCodeAt('A'))) :
-        		myArr.push(String.fromCharCode((x.charCodeAt(0) - x.charCodeAt('a') + 13) % 26 + x.charCodeAt('a')))) : myArr.push(x);
-	};
+var myArr = [];
+for (var i = 0; i < str.length ; i++) {
+	var x = str.charAt(i);
+	if ((x.charCodeAt(0) < 91) && (x.charCodeAt(0) > 64)) {
+		myArr.push(String.fromCharCode((x.charCodeAt(0) - 'A'.charCodeAt(0) + 13) % 26 + 'A'.charCodeAt(0)))
+		continue;
+	}
+	if ((x.charCodeAt(0) < 123) && (x.charCodeAt(0) > 96)) {
+		myArr.push(String.fromCharCode((x.charCodeAt(0) - 'a'.charCodeAt(0) + 13) % 26 + 'a'.charCodeAt(0)))
+		continue;
+	}
+	else  
+		myArr.push(x);
+}
   return myArr.join('');
 }
 
