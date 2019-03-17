@@ -339,7 +339,10 @@ function sortDigitNamesByNumericOrder(arr) {
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
 function getItemsSum(arr) {
-   arr.length === 0 ? return 0 : return arr.reduce(function(a, b) {return a + b});
+   if (arr.length === 0)
+     return 0;
+   else
+    return arr.reduce(function(a, b) {return a + b});
 }
  
 /** 
