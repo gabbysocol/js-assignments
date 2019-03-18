@@ -150,7 +150,7 @@ function doRectanglesOverlap(rect1, rect2) {
  *   
  */
 function isInsideCircle(circle, point) {
-    throw new Error('Not implemented');
+    return return Math.sqrt((circle.center.x - point.x)*(circle.center.x - point.x) + (circle.center.y - point.y)*(circle.center.y - point.y)) < circle.radius;
 }
 
 
@@ -166,7 +166,13 @@ function isInsideCircle(circle, point) {
  *   'entente' => null
  */
 function findFirstSingleChar(str) {
-    throw new Error('Not implemented');
+    while (str !== "") {
+        let len = str.length;
+        let chr = str[0];
+        str = str.split(chr).join('');
+        if (len == str.length + 1)
+            return chr;            
+    } return null;
 }
 
 
