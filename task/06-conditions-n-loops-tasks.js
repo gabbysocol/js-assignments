@@ -198,7 +198,7 @@ function findFirstSingleChar(str) {
  *
  */
 function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
-    throw new Error('Not implemented');
+    return (isStartIncluded === true ? '[' : '(') + (a <= b ? a.toString().concat(', ' + b.toString()) : b.toString().concat(', ' + a.toString())) + (isEndIncluded === true ? ']' : ')');
 }
 
 
@@ -232,7 +232,7 @@ function reverseString(str) {
  *   34143 => 34143
  */
 function reverseInteger(num) {
-    throw new Error('Not implemented');
+    return num.toString().split('').reverse().join('');
 }
 
 
@@ -276,7 +276,14 @@ function isCreditCardNumber(ccn) {
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
 function getDigitalRoot(num) {
-    throw new Error('Not implemented');
+	let sum = 0;
+	while (num !== 0) {
+		sum += num % 10;
+		num /= 10;
+	}
+	if (sum > 9) 
+		sum = getDigitalRoot(sum);	
+	return sum;    
 }
 
 
