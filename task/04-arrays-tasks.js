@@ -580,7 +580,7 @@ function getElementByIndexes(arr, indexes) {
  */
 function swapHeadAndTail(arr) {
     return arr.length % 2 === 0 ? arr.join('').substring(arr.length / 2, arr.length).concat(arr.join('').substring(0, arr.length / 2)).split('').map((elem) => parseInt(elem)) :
-        arr.join('').substring(arr.length / 2 + 1, arr.length).concat(arr.join('').substring(0, arr.length / 2 + 1)).split('').map((elem) => parseInt(elem)); 
+        arr.join('').substring(arr.length / 2 + 1, arr.length).concat(arr.join('').substring(arr.length / 2, arr.length / 2 + 1 )).concat(arr.join('').substring(0, arr.length / 2)).split('').map((elem) => parseInt(elem)); 
 }
 
 
