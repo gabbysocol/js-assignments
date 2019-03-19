@@ -279,7 +279,7 @@ function getDigitalRoot(num) {
 	let sum = 0;
 	while (num !== 0) {
 		sum += num % 10;
-		num = Math.round(num / 10);
+		num = Math.trunc(num / 10);
 	}if (sum > 9) 
 		sum = getDigitalRoot(sum);	
 	 return sum;    
