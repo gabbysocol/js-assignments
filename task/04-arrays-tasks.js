@@ -579,9 +579,8 @@ function getElementByIndexes(arr, indexes) {
  * 
  */
 function swapHeadAndTail(arr) {
-    arr.length % 2 === 0 ?
-    return arr.join('').substring(arr.length / 2, arr.length).concat(arr.join('').substring(0, arr.length / 2)).split('').map((elem) => parseInt(elem)) :
-    return arr.join('').substring(arr.length / 2 + 1, arr.length).concat(arr.join('').substring(0, arr.length / 2 + 1)).split('').map((elem) => parseInt(elem))
+    arr.length % 2 === 0 ? return arr.join('').substring(arr.length / 2, arr.length).concat(arr.join('').substring(0, arr.length / 2)).split('').map((elem) => parseInt(elem)) :
+       return arr.join('').substring(arr.length / 2 + 1, arr.length).concat(arr.join('').substring(0, arr.length / 2 + 1)).split('').map((elem) => parseInt(elem));
 }
 
 
