@@ -445,7 +445,7 @@ function sortCitiesArray(arr) {
  *           [0,0,0,0,1]]   
  */
 function getIdentityMatrix(n) {
-   return Array.from(('1' + '0'.repeat(n)).repeat(n - 1) + '1')
+   return Array.from((('1' + '0'.repeat(n)).repeat(n - 1) + '1')
      		.match(new RegExp('.{1,' + n + '}', 'g')), x => x.split(''));
 }
 
