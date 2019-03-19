@@ -235,7 +235,8 @@ function toArrayOfSquares(arr) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
 function getMovingSum(arr) {
-   throw new Error('Not implemented');
+   let prev = 0;
+   return (arr.map((elem) => prev += elem));
 }
 
 /**
@@ -421,19 +422,18 @@ function toStringList(arr) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  */
 function sortCitiesArray(arr) {
-    throw new Error('Not implemented');
-   /*return Array.from(arr.sort(function (a, b) {
-     if (a.city < b.city) {
-       return -1;
-     } if (a.city > b.city) {
-         return 1;
-     } return 0;}).sort(function (a, b) {
-     if (a.country < b.country) {
-       return -1;
-     } if (a.country > b.country) {
-         return 1;
-     } return 0;}));
-     */
+    return Array.from(arr.sort(function (a, b) {
+                   if (a.city < b.city) {
+                     return -1;
+                   } if (a.city > b.city) {
+                       return 1;
+                   } return 0;}).sort(function (a, b) {
+                   if (a.country < b.country) {
+                     return -1;
+                   } if (a.country > b.country) {
+                       return 1;
+                   } return 0;}));
+     
 }
 
 /**
@@ -488,7 +488,8 @@ function getIntervalArray(start, end) {
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
 function distinct(arr) {
-   throw new Error('Not implemented');
+   let distinct = (value, index, self) => {return self.indexOf(value) === index;} 
+   return  (arr.filter(distinct));
 }
 
 /**
@@ -578,7 +579,7 @@ function getElementByIndexes(arr, indexes) {
  * 
  */
 function swapHeadAndTail(arr) {
-    throw new Error('Not implemented');
+    return arr.join('').substring(arr.length / 2, arr.length).concat(arr.join('').substring(0, arr.length / 2)).split('');
 }
 
 
