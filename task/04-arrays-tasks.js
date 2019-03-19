@@ -422,17 +422,7 @@ function toStringList(arr) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  */
 function sortCitiesArray(arr) {
-    return arr.sort(function (a, b) {
-              if (a.city < b.city) {
-                return -1;
-              } if (a.city > b.city) {
-                  return 1;
-              } return 0;}).sort(function (a, b) {
-              if (a.country < b.country) {
-                return -1;
-              } if (a.country > b.country) {
-                  return 1;
-              } return 0;});
+    return arr.sort((a, b) => (a.country == b.country) ?  a.city.localeCompare(b.city) : a.country.localeCompare(b.country));
      
 }
 
