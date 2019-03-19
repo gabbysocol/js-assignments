@@ -445,7 +445,8 @@ function sortCitiesArray(arr) {
  *           [0,0,0,0,1]]   
  */
 function getIdentityMatrix(n) {
-   throw new Error('Not implemented');
+   return Array.from(('1' + '0'.repeat(n)).repeat(n - 1) + '1')
+     		.match(new RegExp('.{1,' + n + '}', 'g')), x => x.split(''));
 }
 
 /**
@@ -546,7 +547,8 @@ function selectMany(arr, childrenSelector) {
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
 function getElementByIndexes(arr, indexes) {
-    throw new Error('Not implemented');
+       indexes.map((elem) => {arr = arr[elem];});
+       return arr;
 }
 
 
