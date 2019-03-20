@@ -530,7 +530,7 @@ function group(array, keySelector, valueSelector) {
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
 function selectMany(arr, childrenSelector) {
-    return arr.reduce((acc, val) => Array.isArray(val) ? acc.concat(selectMany(val, childrenSelector)) : acc.concat(val), []);
+    return arr.reduce((acc, val) => Array.isArray(val) ? acc.concat(selectMany(val, childrenSelector)).childrenSelector() : acc.concat(val), []).childrenSelector();
 }
 
 
