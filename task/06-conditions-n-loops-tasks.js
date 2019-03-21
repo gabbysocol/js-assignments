@@ -357,7 +357,7 @@ function isBracketsBalanced(str) {
  *
  */
 function timespanToHumanString(startDate, endDate) {
-    	const startDate = 10;
+   
 	const min = 60;
 	const h = 60 * min;
 	const day = 24 * h;
@@ -367,7 +367,7 @@ function timespanToHumanString(startDate, endDate) {
 	let time  = (endDate - startDate) / 1000;
 
 	if (time <= 45) 
-	  console.log('a few seconds ago');
+	  return 'a few seconds ago';
 	if (time <= 90) 
 	  return 'a minute ago';
 	if (time <= 45 * min) 
