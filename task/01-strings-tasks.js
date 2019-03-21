@@ -223,9 +223,9 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-var myArr = [];
-for (var i = 0; i < str.length ; i++) {
-	var x = str.charAt(i);
+let myArr = [];
+for (let i = 0; i < str.length ; i++) {
+	let x = str.charAt(i);
 	if ((x.charCodeAt(0) < 91) && (x.charCodeAt(0) > 64)) {
 		myArr.push(String.fromCharCode((x.charCodeAt(0) - 'A'.charCodeAt(0) + 13) % 26 + 'A'.charCodeAt(0)))
 		continue;
@@ -283,7 +283,7 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-	var res;
+	let res;
 	if (value[value.length - 1] === '♣')
 	  res = 0;
 	if (value[value.length - 1] === '♦')
