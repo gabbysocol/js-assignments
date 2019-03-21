@@ -318,7 +318,7 @@ function isBracketsBalanced(str) {
 	      check.pop(elem);
 	      //console.log(0);
 	    }else {
-		return false;
+		check.push(0);
 	  }}
 	});
 	return (check.length === 0 ? true : false);
@@ -375,10 +375,10 @@ function timespanToHumanString(startDate, endDate) {
 
 	if (time <= 90 * min) 
 	  return 'an hour ago';
-	if (time <= 22 * hour) 
-	  return Math.trunc(time / hour) + ' hours ago';
+	if (time <= 22 * h) 
+	  return Math.trunc(time / h) + ' hours ago';
 
-	if (time <= 36 * hour) 
+	if (time <= 36 * h) 
 	  return 'a day ago';
 	if (time <= 25 * day) 
 	  return Math.trunc(time / day) + ' days ago';
