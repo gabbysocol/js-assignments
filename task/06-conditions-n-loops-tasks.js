@@ -314,7 +314,7 @@ function isBracketsBalanced(str) {
 	  if ((elem === '{') || (elem === '[') || (elem === '<') || (elem === '('))
 	    check.push(elem);
 	  else {
-	    if (check[check.length - 1] === brakets[elem]) {
+	    if (check[check.length - 1] === brakets[elem] && check.length !== 0) {
 	      check.pop(elem);
 	      //console.log(0);
 	    }else {
@@ -357,7 +357,40 @@ function isBracketsBalanced(str) {
  *
  */
 function timespanToHumanString(startDate, endDate) {
-    throw new Error('Not implemented');
+    	const startDate = 10;
+	const min = 60;
+	const h = 60 * min;
+	const day = 24 * h;
+	const month = 30 * day;
+	const year = 12 * month;
+
+	let time  = (endDate - startDate) / 1000;
+
+	if (time <= 45) 
+	  console.log('a few seconds ago');
+	if (time <= 90) 
+	  return 'a minute ago';
+	if (time <= 45 * min) 
+	  return Math.trunc(time / min) + ' minutes ago';
+
+	if (time <= 90 * min) 
+	  return 'an hour ago';
+	if (time <= 22 * hour) 
+	  return Math.trunc(time / hour) + ' hours ago';
+
+	if (time <= 36 * hour) 
+	  return 'a day ago';
+	if (time <= 25 * day) 
+	  return Math.trunc(time / day) + ' days ago';
+
+	if (time <= 45 * day) 
+	  return 'a month ago';
+	if (time <= 345 * day) 
+	  return Math.trunc(time / month) + ' months ago';
+
+	if (time <= 545 * day) 
+	  return 'a year ago';
+	return Math.trunc(time / year) + ' years ago';
 }
 
 
