@@ -518,15 +518,12 @@ function group(array, keySelector, valueSelector) {
     let values = array.map(valueSelector);
     let finalMap = new Map();
 
-    keys.map(function(value1, index, array){
-        if (!finalMap.has(value1)){
+    keys.map(function(value1, index, array) {
+        if (!finalMap.has(value1)) {
             let newValues = [];
             keys.map(function(value2, index, array){    
-                if(value2 === value1){
-                   newValues.push(values[index]);
-                }});
-            finalMap.set(value1, newValues);
-        }}) return finalMap;    
+                if(value2 === value1){newValues.push(values[index]);}});
+            finalMap.set(value1, newValues);}};) return finalMap;    
 }
 
 
