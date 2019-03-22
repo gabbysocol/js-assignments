@@ -364,32 +364,37 @@ function timespanToHumanString(startDate, endDate) {
 	const month = 30 * day;
 	const year = 12 * month;
 
-	let time  = (endDate - startDate) / 1000;
+	let time  = (endDate.getTime() - startDate.getTime()) / 1000;
 
 	if (time <= 45) 
 	  return 'a few seconds ago';
 	if (time <= 90) 
 	  return 'a minute ago';
-	if (time <= 45 * min) 
-	  return Math.round(time / min) + ' minutes ago';
-
-	if (time <= 90 * min) 
+	
+	time  = time / min;
+	if (time <= 45) 
+	  return Math.round(time) + ' minutes ago';		
+	if (time <= 90) 
 	  return 'an hour ago';
-	if (time <= 22 * h) 
-	  return Math.round(time / h) + ' hours ago';
-
-	if (time <= 36 * h) 
+	
+	time  = time / h;
+	if (time <= 22) 
+	  return Math.round(time) + ' hours ago';
+	if (time <= 36) 
 	  return 'a day ago';
-	if (time <= 25 * day) 
-	  return Math.round(time / day) + ' days ago';
-
-	if (time <= 45 * day) 
+	
+	time  = time / day;
+	if (time <= 25) 
+	  return Math.round(time) + ' days ago';
+	if (time <= 45) 
 	  return 'a month ago';
-	if (time <= 345 * day) 
+	
+	if (time <= 345) 
 	  return Math.round(time / month) + ' months ago';
 
-	if (time <= 545 * day) 
+	if (time <= 545) 
 	  return 'a year ago';
+	
 	return Math.round(time / year) + ' years ago';
 }
 
@@ -504,7 +509,21 @@ function getMatrixProduct(m1, m2) {
  *
  */
 function evaluateTicTacToePosition(position) {
-    throw new Error('Not implemented');
+    let flat = [];
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            flat.push(position[i][j]);
+        }
+    }
+    function getWinner(point1,point2,point3) {
+        if(flat[point1] === undefined) 
+	    return undefined;
+        if(flat[point1] != flat[point2]) 
+	    return undefined;
+        if(flat[point1] != flat[point3]) 
+	    return undefined;
+        return flat[point1];
+    } return getWinner(0,1,2) || getWinner(3,4,5) || getWinner(6,7,8) || getWinner(0,3,6) || getWinner(1,4,7) || getWinner(2,5,8) || getWinner(0,4,8) || getWinner(6,4,2);
 }
 
 
