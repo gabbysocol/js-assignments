@@ -524,9 +524,12 @@ function group(array, keySelector, valueSelector) {
             keys.map(function(value2, index, array){    
                 if(value2 === value1){
                    newValues.push(values[index]);
-                }});
+                }
+           });
            finalMap.set(value1, newValues);
-        }})    return finalMap;    
+        }
+    })
+    return finalMap;    
 }
 
 
