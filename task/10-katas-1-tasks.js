@@ -137,8 +137,26 @@ function canDominoesMakeRow(dominoes) {
  * [ 1, 2, 4, 5]          => '1,2,4,5'
  */
 function extractRanges(nums) {
-    throw new Error('Not implemented');
-}
+	let resStrArr = [];
+  	var intStart = nums[0];
+  	var intEnd = nums[0];
+
+  	for(let i = 1; i <= nums.length; ++i){
+              while((i < nums.length) && (intEnd + 1 == nums[i]))
+                   intEnd = nums[i++];
+
+              if (intStart + 1 === intEnd){
+                   resStrArr.push(intStart);           
+                   resStrArr.push(intEnd); 
+              } else {          
+                   resStrArr.push(intStart === intEnd ? intEnd : `${intStart} - ${intEnd}` );
+              }
+          if (i < nums.length){
+ 	 	           intStart = nums[i];
+		           intEnd = nums[i];
+	      }}
+	return resStrArr.join(',');
+    }
 
 module.exports = {
     createCompassPoints : createCompassPoints,
