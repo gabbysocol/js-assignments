@@ -383,12 +383,12 @@ function timespanToHumanString(startDate, endDate) {
 	  return 'an hour ago';
 
 	if (time / h <= 22) 
-	  return myRound(time - 0.001) + ' hours ago';
+	  return myRound(time / h) + ' hours ago';
 	if (time / h <= 36) 
 	  return 'a day ago';
 	
 	if (time / day <= 25) 
-	  return myRound(time - 0.001) + ' days ago';
+	  return myRound(time / day) + ' days ago';
 	if (time / day <= 45) 
 	  return 'a month ago';
 	
