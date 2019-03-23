@@ -31,7 +31,7 @@
  * @return {RegExp}
  */
 function getRegexForGuid() {
-   throw new Error('Not implemented');
+   return new RegExp('\{[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}\}', 'i');
 }
 
 
@@ -72,7 +72,8 @@ function getRegexForPitSpot() {
  * @return {RegExp}
  */
 function getRegexForIPv4() {
-   throw new Error('Not implemented');
+   let number = '(25[0-5]|2[0-4][0-9]|[01]?[0-9]{1,2})';
+   return new RegExp('^' + number +'[.]' +number +'[.]' +number +'[.]'+number +'$');
 }
 
 
