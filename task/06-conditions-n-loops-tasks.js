@@ -379,7 +379,7 @@ function timespanToHumanString(startDate, endDate) {
 	
 	if (time / min <= 45) 
 	  return myRound(time / min) + ' minutes ago';		
-	if (time <= 90) 
+	if (time / min<= 90) 
 	  return 'an hour ago';
 
 	if (time / h <= 22) 
