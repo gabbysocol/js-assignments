@@ -390,7 +390,7 @@ function timespanToHumanString(startDate, endDate) {
 	  return 'a month ago';
 	
 	if (time <= 345) 
-	  return Math.round(time - 0.001) / month) + ' months ago';
+	  return Math.round((time - 0.001) / month) + ' months ago';
 
 	if (time <= 545) 
 	  return 'a year ago';
@@ -436,7 +436,23 @@ function toNaryString(num, n) {
  *   ['/web/favicon.ico', '/web-scripts/dump', '/webalizer/logs'] => '/'
  */
 function getCommonDirectoryPath(pathes) {
-    throw new Error('Not implemented');
+  let path = pathes[0];
+  let res = "";
+  let bool = true;
+	
+  for (let i = 0; i < path.length; ++i){
+      bool = true;
+      for(let j = 0; j < pathes.length; ++j){
+          if (i > pathes[j].length ||path[i] != pathes[j][i]){
+              bool = false;
+              break;
+          }}
+      if (!bool)
+          break;
+      else
+        res += path[i];
+  }
+  return res.slice(0, res.lastIndexOf('/') + 1);
 }
 
 
