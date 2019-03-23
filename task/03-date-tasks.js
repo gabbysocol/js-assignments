@@ -87,7 +87,21 @@ function isLeapYear(date) {
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,15,20,10,453)   => "05:20:10.453"
  */
 function timeSpanToString(startDate, endDate) {
-   throw new Error('Not implemented');
+       const minConst = 60;  
+       const hourConst = minConst * 60;  
+       const dayConst = hourConst * 24;  
+
+       let time = (endDate.getTime() - startDate.getTime()) / 1000;
+
+       let days = Math.floor(time / dayConst);  
+       time -= days * dayConst; 
+       let hours = Math.floor(time / hourConst);  
+       time -= (hours * hourConst);  
+       let minutes = Math.floor(time / minConst);  
+       time -= (minutes * minConst);  
+       let seconds = Math.floor(time); 
+
+       return ("0" + hours).slice(-2) + ":" + ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2) + "." + ("00" + time).slice(-3);
 }
 
 
@@ -105,7 +119,18 @@ function timeSpanToString(startDate, endDate) {
  *    Date.UTC(2016,3,5,21, 0) => Math.PI/2
  */
 function angleBetweenClockHands(date) {
-    throw new Error('Not implemented');
+    let min = date.getUTCMinutes() % 60;
+    let hour = date.getUTCHours() % 12;
+    // first workout the minute angle, hour, h+min
+    var minAngle = 360*(min / 60);
+    var hourAngle = (360 * (hour / 12)) + ((360 / 12) * (min / 60));   
+    let angle = Math.abs(hourAngle - minAngle);
+
+    if (angle > 180){
+        angle = 360 - angle;
+    }
+    angle = angle * Math.PI / 180;
+    return angle;
 }
 
 
