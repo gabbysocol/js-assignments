@@ -357,12 +357,18 @@ function isBracketsBalanced(str) {
  *
  */
 function timespanToHumanString(startDate, endDate) {
-   
+   	function myRound(date) {
+		let ost = Math.abs(date - Math.floor(date));
+
+		if (ost > 0.5) 	    return Math.round(date);
+		else		    return Math.floor(date);
+	}
+	
 	const min = 60;
-	const h = 60 ;//* min;
-	const day = 24 ;//* h;
-	const month = 30;// * day;
-	const year = 12 ;//* month;
+	const h = 60 * min;
+	const day = 24 * h;
+	const month = 30 * day;
+	const year = 12 * month;
 
 	let time  = (endDate.getTime() - startDate.getTime()) / 1000;
 
@@ -371,31 +377,28 @@ function timespanToHumanString(startDate, endDate) {
 	if (time <= 90) 
 	  return 'a minute ago';
 	
-	time  = time / min;
-	if (time <= 45) 
-	  return Math.round(time - 0.001) + ' minutes ago';		
+	if (time / min <= 45) 
+	  return myRound(time / min) + ' minutes ago';		
 	if (time <= 90) 
 	  return 'an hour ago';
-	
-	time  = time / h;
-	if (time <= 22) 
-	  return Math.round(time - 0.001) + ' hours ago';
-	if (time <= 36) 
+
+	if (time / h <= 22) 
+	  return myRound(time - 0.001) + ' hours ago';
+	if (time / h <= 36) 
 	  return 'a day ago';
 	
-	time  = time / day;
-	if (time <= 25) 
-	  return Math.round(time - 0.001) + ' days ago';
-	if (time <= 45) 
+	if (time / day <= 25) 
+	  return myRound(time - 0.001) + ' days ago';
+	if (time / day <= 45) 
 	  return 'a month ago';
 	
-	if (time <= 345) 
-	  return Math.round((time - 0.001) / month) + ' months ago';
+	if (time / day <= 345) 
+	  return myRound(time / month) + ' months ago';
 
-	if (time <= 545) 
+	if (time / day <= 545) 
 	  return 'a year ago';
 	
-	return Math.round((time - 0.001) / year) + ' years ago';
+	return myRound(time / year) + ' years ago';
 }
 
 
