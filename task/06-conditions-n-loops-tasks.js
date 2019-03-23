@@ -373,29 +373,29 @@ function timespanToHumanString(startDate, endDate) {
 	
 	time  = time / min;
 	if (time <= 45) 
-	  return Math.floor(time) + ' minutes ago';		
+	  return Math.round(time - 0.001) + ' minutes ago';		
 	if (time <= 90) 
 	  return 'an hour ago';
 	
 	time  = time / h;
 	if (time <= 22) 
-	  return Math.floor(time) + ' hours ago';
+	  return Math.round(time - 0.001) + ' hours ago';
 	if (time <= 36) 
 	  return 'a day ago';
 	
 	time  = time / day;
 	if (time <= 25) 
-	  return Math.floor(time) + ' days ago';
+	  return Math.round(time - 0.001) + ' days ago';
 	if (time <= 45) 
 	  return 'a month ago';
 	
 	if (time <= 345) 
-	  return Math.floor(time / month) + ' months ago';
+	  return Math.round(time - 0.001) / month) + ' months ago';
 
 	if (time <= 545) 
 	  return 'a year ago';
 	
-	return Math.floor(time / year) + ' years ago';
+	return Math.round((time - 0.001) / year) + ' years ago';
 }
 
 
