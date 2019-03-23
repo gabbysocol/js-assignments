@@ -359,10 +359,10 @@ function isBracketsBalanced(str) {
 function timespanToHumanString(startDate, endDate) {
    
 	const min = 60;
-	const h = 60 * min;
-	const day = 24 * h;
-	const month = 30 * day;
-	const year = 12 * month;
+	const h = 60 ;//* min;
+	const day = 24 ;//* h;
+	const month = 30;// * day;
+	const year = 12 ;//* month;
 
 	let time  = (endDate.getTime() - startDate.getTime()) / 1000;
 
