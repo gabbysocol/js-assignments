@@ -149,7 +149,7 @@ function extractRanges(nums) {
                    resStrArr.push(intStart);           
                    resStrArr.push(intEnd); 
               } else {          
-                   resStrArr.push(intStart === intEnd ? intEnd : `${intStart} - ${intEnd}` );
+                   resStrArr.push(intStart === intEnd ? intEnd : `${intStart}-${intEnd}` );
               }
           if (i < nums.length){
  	 	           intStart = nums[i];
