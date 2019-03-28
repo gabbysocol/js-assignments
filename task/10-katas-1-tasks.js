@@ -17,8 +17,29 @@
  *  ]
  */
 function createCompassPoints() {
-    throw new Error('Not implemented');
+    
     var sides = ['N','E','S','W'];  // use array of cardinal directions only!
+    let arr = [], abbreviation = "", azimuth = 0;
+    let temp1, temp2;
+	
+    for (var i = 0; i < 4; i++) {
+        temp1 = (sides[i] == 'S' || sides[(i + 1) % 4] == 'S') ? 'S' : 'N';
+        temp2 = (sides[i] == 'E' || sides[(i + 1) % 4] == 'E') ? 'E' : 'W';
+	    
+        arr.push({ abbreviation: sides[i], azimuth : 11.25 * i * 8});
+        arr.push({ abbreviation: sides[i] + 'b' + sides[(i + 1) % 4], azimuth : 11.25 * (i * 8 + 1)});
+	    
+        arr.push({ abbreviation: sides[i] + temp1 + temp2, azimuth : 11.25 * (i * 8 + 2)});
+        arr.push({ abbreviation: temp1 + temp2 + 'b' + sides[i], azimuth : 11.25 * (i * 8 + 3)});
+	    
+        arr.push({ abbreviation: temp1 + temp2, azimuth : 11.25 * (i * 8 + 4)});
+        arr.push({ abbreviation: temp1 + temp2 + 'b' + sides[(i + 1) % 4], azimuth : 11.25 * (i * 8 + 5)});
+	    
+        arr.push({ abbreviation: sides[(i + 1) % 4] + temp1 + temp2, azimuth : 11.25 * (i * 8 + 6)});
+        arr.push({ abbreviation: sides[(i + 1) % 4] + 'b' + sides[i], azimuth : 11.25 * (i * 8 + 7)});
+    }	
+    return arr;
+    //throw new Error('Not implemented');
 }
 
 
