@@ -99,8 +99,19 @@ const PokerRank = {
     HighCard: 0
 }
 
+/*function getPokerHandRank(hand) {
+    //throw new Error('Not implemented');
+}*/
+
+
+var Result = { "win": 0, "loss": 0, "tie": 0 }
+
 function getPokerHandRank(hand) {
-    throw new Error('Not implemented');
+  this.hand = hand.split(' ');
+}
+
+getPokerHandRank.prototype.compareWith = function(hand){
+  return 0;
 }
 
 
