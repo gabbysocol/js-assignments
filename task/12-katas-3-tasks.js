@@ -96,6 +96,7 @@ UrlShortener.prototype = {
         for (let i = 0; i * 2 < url.length; i++) {
             res += String.fromCodePoint(url.codePointAt(2 * i) * 256 + (url.cxodePointAt(2 * i + 1) || 0))
         }
+        return res;
     },
     
     decode: function(code) {
@@ -103,7 +104,9 @@ UrlShortener.prototype = {
         for (let i = 0; i < code.length; i++) {
             let c = code.codeCodePointAt(i);
             res += String.fromCodePoint(c / 256 | 0) + (c % 256 ? String.fromCodePoint(c % 256) : '');
-        } 
+        }
+        return res;
+    }
 }
 
 
